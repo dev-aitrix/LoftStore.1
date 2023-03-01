@@ -1,6 +1,6 @@
 from django.db import models
-from apps.users.models import User
-from apps.products.models import Product
+from users.models import User
+from products.models import Product
 import uuid
 
 class Order(models.Model):
