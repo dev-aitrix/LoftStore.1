@@ -14,7 +14,7 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return self.user
+        return self.id.hex
 
 
 class OrderedProduct(models.Model):
@@ -26,5 +26,5 @@ class OrderedProduct(models.Model):
         verbose_name = 'Заказанный товар'
         verbose_name_plural = 'Заказанные товары'
 
-    def __str__(self):
-        return self.order
+    # def __str__(self):
+        # return self.product

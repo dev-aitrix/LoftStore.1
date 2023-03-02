@@ -1,4 +1,10 @@
 from django.contrib import admin
-from products.models import Product
+from .models import Product
 
-admin.site.register(Product)
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+
+    list_display = ('id', 'name', 'category', 'price',)
+    search_fields = ('name',)
+    list_filter = ('category',)
+    empty_value_display = '-пусто-'
