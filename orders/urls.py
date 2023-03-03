@@ -13,8 +13,6 @@ orderedproductRouter.register('Ordered Products', OrderedProductViewSet)
 
 
 urlpatterns = [
-    # path('', include(orderRouter.urls)),
-    # path('', include(orderedproductRouter.urls)),
     path('', OrderViewSet.as_view({'get': 'list'}), name='api-OrderViewSet'),
     path('products', OrderedProductViewSet.as_view({'get': 'list'}), name='api-OrderedProductsViewSet'),
 ]
