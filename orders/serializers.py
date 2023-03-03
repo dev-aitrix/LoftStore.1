@@ -1,12 +1,12 @@
-from rest_framework.serializers import Serializer
+from rest_framework.serializers import ModelSerializer
 from orders.models import Order, OrderedProduct
 
-class OrderSerializer(Serializer):
+class OrderSerializer(ModelSerializer):
     class Meta:
         model = Order
         exclude = ['id']
 
-class OrderedProductSerializer(Serializer):
+class OrderedProductSerializer(ModelSerializer):
     class Meta:
         model = OrderedProduct
-        include = '__ all__'
+        fields = ('__all__')
