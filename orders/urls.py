@@ -1,17 +1,11 @@
-from django.urls import include, path
-
+from django.urls import path
 from orders.views import OrderViewSet, OrderedProductViewSet
 
 app_name = 'orders'
-#
-# orderRouter = DefaultRouter()
-# orderRouter.register('Orders', OrderViewSet)
-#
-# orderedproductRouter = DefaultRouter()
-# orderedproductRouter.register('Ordered Products', OrderedProductViewSet)
-
 
 urlpatterns = [
-    path('', OrderViewSet.as_view({'get': 'list'}), name='api-OrderViewSet'),
-    path('products', OrderedProductViewSet.as_view({'get': 'list'}), name='api-OrderedProductsViewSet'),
+    path('', OrderViewSet.as_view({'get': 'list'}), name='api-OrderView'),
+    path('create/', OrderViewSet.as_view({'put': 'create'}), name='api-OrderCreate'),
+    path('products', OrderedProductViewSet.as_view({'get': 'list'}), name='api-OrderedProductsView'),
+    path('products/create', OrderedProductViewSet.as_view({'put': 'create'}), name='api-OrderedProductsCreate'),
 ]
