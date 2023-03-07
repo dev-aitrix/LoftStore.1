@@ -1,11 +1,11 @@
 from django.db import models
-from users.models import User
+from users.models import UserModel
 from products.models import Product
 import uuid
 
 class Order(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Заказавший пользователь')
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE, verbose_name='Заказавший пользователь')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата заказа')
     total_cost = models.DecimalField(verbose_name='Сумма заказа', max_digits=9, decimal_places=2)
 
