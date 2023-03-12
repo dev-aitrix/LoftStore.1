@@ -1,6 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from products.models import Product
-class ProductSerializer(ModelSerializer):
+from products.models import ProductModel
+
+
+class ProductModelSerializer(ModelSerializer):
     class Meta:
-        model = Product
+        model = ProductModel
         exclude = ['id']

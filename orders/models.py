@@ -1,6 +1,6 @@
 from django.db import models
 from users.models import UserModel
-from products.models import Product
+from products.models import ProductModel
 import uuid
 
 class Order(models.Model):
@@ -19,7 +19,7 @@ class Order(models.Model):
 
 class OrderedProduct(models.Model):
     order = models.ForeignKey(Order, verbose_name='id заказа', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, verbose_name='id товара',  on_delete=models.CASCADE)
+    product = models.ForeignKey(ProductModel, verbose_name='id товара',  on_delete=models.CASCADE)
     count = models.IntegerField(verbose_name='количество заказанных товаров')
 
     class Meta:
